@@ -4,11 +4,13 @@
 /client/node_modules
 /post/node_modules
 /comment/node_modules
+/event-bus/node_modules
 
 # production
 /client/build
 
 # misc
-/client/.env*
-/post/.env*
-/comment/.env*
+/client/.env
+/post/.env
+/comment/.env
+/event-bus/.env
