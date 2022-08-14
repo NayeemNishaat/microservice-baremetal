@@ -3,10 +3,15 @@ const PostCreate = () => {
     <div>
       <form>
         <div className="">
-          <label>Title</label>
-          <input type="text" className="" />
+          <input
+            type="text"
+            placeholder="Title"
+            className="outline-none border mt-4 "
+          />
         </div>
-        <button className="">Submit</button>
+        <button className="border mt-4 border-blue-700 p-0.5 rounded">
+          Submit
+        </button>
       </form>
     </div>
   );
