@@ -12,14 +12,14 @@ app.post("/event", async (req, res) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: event
+      body: JSON.stringify(event)
     });
     await fetch("http://localhost:5000/event", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: event
+      body: JSON.stringify(event)
     });
     // await fetch("http://localhost:6000/event", {
     //   method: "POST",
