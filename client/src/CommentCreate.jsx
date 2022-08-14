@@ -28,7 +28,7 @@ const CommentCreate = ({ postId }) => {
             onChange={(e) => setContent(e.target.value)}
           />
         </div>
-        <button className="border mt-4 border-blue-700 p-0.5 rounded">
+        <button className="border mt-4 border-blue-700 py-0.5 px-1 rounded">
           Submit
         </button>
       </form>

@@ -6,8 +6,8 @@ const App = () => {
     <div className="container mx-auto mt-10">
       <h1 className="text-2xl">Create Post</h1>
       <PostCreate />
-      <hr />
-      <h1>Posts</h1>
+      <hr className="mt-5" />
+      <h1 className="font-black text-4xl mb-5">Posts</h1>
       <PostList />
     </div>
   );

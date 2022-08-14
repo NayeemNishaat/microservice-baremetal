@@ -15,7 +15,7 @@ const PostList = () => {
   }, []);
 
   return (
-    <>
+    <div className="flex gap-5 items-start">
       {Object.values(posts).map((post) => (
         <div className="text-xl font-bold" key={post.id}>
           <h2>{post.title}</h2>
@@ -23,7 +23,7 @@ const PostList = () => {
           <CommentCreate postId={post.id} />
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
