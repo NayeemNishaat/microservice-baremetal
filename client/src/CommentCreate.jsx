@@ -22,6 +22,7 @@ const CommentCreate = ({ postId }) => {
       <form onSubmit={submitHandler}>
         <div>
           <input
+            className="outline-none border mt-4 px-1.5 py-0.5 rounded"
             placeholder="New Comment"
             type="text"
             value={content}

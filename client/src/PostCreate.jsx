@@ -28,7 +28,7 @@ const PostCreate = () => {
             }}
             type="text"
             placeholder="Title"
-            className="outline-none border mt-4 "
+            className="outline-none border mt-4 px-1.5 py-0.5 rounded"
           />
         </div>
         <button className="border mt-4 border-blue-700 py-0.5 px-1 rounded">

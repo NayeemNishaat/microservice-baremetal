@@ -17,8 +17,8 @@ const PostList = () => {
   return (
     <div className="flex gap-5 items-start">
       {Object.values(posts).map((post) => (
-        <div className="text-xl font-bold" key={post.id}>
-          <h2>{post.title}</h2>
+        <div key={post.id}>
+          <h2 className="font-bold text-xl">{post.title}</h2>
           <CommentList postId={post.id} />
           <CommentCreate postId={post.id} />
         </div>
