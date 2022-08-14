@@ -27,6 +27,12 @@ app.post("/post", async (req, res) => {
     })
   });
 
+  app.post("/event", async (req, res) => {
+    console.log(req.body);
+
+    res.send({});
+  });
+
   res.status(201).send(posts[id]);
 });
 

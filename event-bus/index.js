@@ -21,13 +21,13 @@ app.post("/event", async (req, res) => {
       },
       body: event
     });
-    await fetch("http://localhost:6000/event", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: event
-    });
+    // await fetch("http://localhost:6000/event", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: event
+    // });
   } catch (err) {
     console.log(err.message);
   }
