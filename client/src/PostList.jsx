@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import CommentCreate from "./CommentCreate";
+import CommentList from "./CommentList";
 
 const PostList = () => {
   const [posts, setPosts] = useState({});
@@ -15,9 +17,11 @@ const PostList = () => {
   return (
     <>
       {Object.values(posts).map((post) => (
-        <h2 className="text-xl font-bold" key={post.id}>
-          {post.title}
-        </h2>
+        <div className="text-xl font-bold" key={post.id}>
+          <h2>{post.title}</h2>
+          <CommentList postId={post.id} />
+          <CommentCreate postId={post.id} />
+        </div>
       ))}
     </>
   );
