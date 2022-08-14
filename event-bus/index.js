@@ -3,25 +3,38 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
-app.post("/event", (req, res) => {
+app.post("/event", async (req, res) => {
   const event = req.body;
 
-  fetch("http://localhost:4000/event", {
-    method: "POST",
-    body: event
-  });
-  fetch("http://localhost:5000/event", {
-    method: "POST",
-    body: event
-  });
-  fetch("http://localhost:6000/event", {
-    method: "POST",
-    body: event
-  });
+  try {
+    await fetch("http://localhost:4000/event", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: event
+    });
+    await fetch("http://localhost:5000/event", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: event
+    });
+    await fetch("http://localhost:6000/event", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: event
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
 
   res.send({ status: "OK" });
 });
 
-app.listen(8000, () => {
-  console.log("Event bus listening on port 8000");
+app.listen(10000, () => {
+  console.log("Event bus listening on port 10000");
 });
