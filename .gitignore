@@ -4,6 +4,7 @@
 /comment/node_modules
 /event-bus/node_modules
 /query/node_modules
+/moderation/node_modules
 
 # production
 /client/build
@@ -14,3 +15,4 @@
 /comment/.env
 /event-bus/.env
 /query/.env
+/moderation/.env
