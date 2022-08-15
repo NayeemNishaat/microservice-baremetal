@@ -4,7 +4,27 @@ const app = express();
 app.use(express.json());
 
 app.post("/event", async (req, res) => {
-  console.log(req.body);
+  const { type, data } = req.body;
+
+  if (type === "CommentCreated") {
+    const status = data.content.includes("orange") ? "rejected" : "approved";
+
+    await fetch("http://localhost:10000/event", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        type: "CommentUpdated",
+        data: {
+          id: data.id,
+          postId: data.postId,
+          status,
+          content: data.content
+        }
+      })
+    });
+  }
 
   res.send({});
 });
