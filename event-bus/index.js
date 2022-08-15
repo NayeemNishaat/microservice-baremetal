@@ -14,6 +14,7 @@ app.post("/event", async (req, res) => {
       },
       body: JSON.stringify(event)
     });
+
     await fetch("http://localhost:5000/event", {
       method: "POST",
       headers: {
@@ -21,13 +22,14 @@ app.post("/event", async (req, res) => {
       },
       body: JSON.stringify(event)
     });
-    // await fetch("http://localhost:6000/event", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: event
-    // });
+
+    await fetch("http://localhost:6000/event", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: event
+    });
   } catch (err) {
     console.log(err.message);
   }
