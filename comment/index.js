@@ -17,7 +17,11 @@ app.post("/post/:id/comment", async (req, res) => {
 
   const comments = commentsByPostId[req.params.id] || [];
 
-  comments.push({ id: commentId, content: req.body.content });
+  comments.push({
+    id: commentId,
+    content: req.body.content,
+    status: "pending"
+  });
 
   commentsByPostId[req.params.id] = comments;
 
@@ -28,7 +32,12 @@ app.post("/post/:id/comment", async (req, res) => {
     },
     body: JSON.stringify({
       type: "CommentCreated",
-      data: { id: commentId, content: req.body.content, postId: req.params.id }
+      data: {
+        id: commentId,
+        content: req.body.content,
+        postId: req.params.id,
+        status: "pending"
+      }
     })
   });
 
