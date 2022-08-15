@@ -9,6 +9,8 @@ app.post("/event", async (req, res) => {
   res.send({});
 });
 
-app.listen(8000, () => {
-  console.log("Moderation service listening on port 8000");
+app.listen(7000, () => {
+  console.log(
+    "Query service listening on port 7000. Port 6000 is blocked by browser for X11."
+  );
 });
