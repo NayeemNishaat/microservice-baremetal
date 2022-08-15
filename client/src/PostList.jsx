@@ -7,7 +7,7 @@ const PostList = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("http://localhost:4000/post");
+      const res = await fetch("http://localhost:7000/post");
 
       const data = await res.json();
       setPosts(data);
@@ -19,7 +19,7 @@ const PostList = () => {
       {Object.values(posts).map((post) => (
         <div key={post.id}>
           <h2 className="font-bold text-xl">{post.title}</h2>
-          <CommentList postId={post.id} />
+          <CommentList comments={post.comments} />
           <CommentCreate postId={post.id} />
         </div>
       ))}

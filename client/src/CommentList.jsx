@@ -1,17 +1,5 @@
-import { useState, useEffect } from "react";
-
-const CommentList = ({ postId }) => {
-  const [comments, setComments] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const res = await fetch(`http://localhost:5000/post/${postId}/comment`);
-
-      const data = await res.json();
-      setComments(data);
-    })();
-  }, [postId]);
-
+const CommentList = ({ comments }) => {
+  // Important: Now to making any extra requests to get the comments.
   return (
     <ul>
       {comments.map((comment) => (
