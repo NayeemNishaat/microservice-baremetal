@@ -7,7 +7,7 @@ const PostList = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("http://localhost:7000/post");
+      const res = await fetch("http://localhost:8000/post");
 
       const data = await res.json();
       setPosts(data);

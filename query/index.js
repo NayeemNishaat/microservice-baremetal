@@ -22,11 +22,21 @@ app.post("/event", (req, res) => {
   if (type === "CommentCreated") {
     const { id, content, postId, status } = data;
     posts[postId].comments.push({ id, content, status });
+    console.log(posts);
+  }
+
+  if (type === "CommentUpdated") {
+    const { id, content, postId, status } = data;
+
+    // posts[postId].comments.find((c) => c.id === id).status = status; // Note: In one go!
+    const comment = posts[postId].comments.find((c) => c.id === id);
+    comment.content = content;
+    comment.status = status;
   }
 
   res.send({});
 });
 
 app.listen(8000, () => {
-  console.log("Moderation service listening on port 8000");
+  console.log("Query service listening on port 8000");
 });
