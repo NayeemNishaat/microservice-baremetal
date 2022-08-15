@@ -23,7 +23,7 @@ app.post("/event", async (req, res) => {
       body: JSON.stringify(event)
     });
 
-    await fetch("http://localhost:7000/event", {
+    await fetch("http://localhost:8000/event", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -31,7 +31,8 @@ app.post("/event", async (req, res) => {
       body: JSON.stringify(event)
     });
 
-    await fetch("http://localhost:8000/event", {
+    // Important: Point: Remark: Note: The order of calling the sevices matters! i.e. If we call this moderation service before the query service, then the CommentUpdate is fired before the CommentCreated event. This the updating causes error because comment is undefined. Key: Hence query service needs to be called first so that the comment is created before it is moderated/updated.
+    await fetch("http://localhost:7000/event", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
