@@ -5,7 +5,7 @@ app.use(express.json());
 
 const events = [];
 
-app.post("/event", async (req, res) => {
+app.post("/event", (req, res) => {
   const event = req.body;
 
   events.push(event);
@@ -46,7 +46,7 @@ app.post("/event", async (req, res) => {
       body: JSON.stringify(event)
     });
   } catch (err) {
-    console.log(err);
+    console.log(err); // Note: Doesn't work for uncaughtException.
   }
 
   res.send({ status: "OK" });
@@ -58,4 +58,9 @@ app.get("/event", (req, res) => {
 
 app.listen(10000, () => {
   console.log("Event bus listening on port 10000");
+});
+
+process.on("uncaughtException", function (error) {
+  // Point: For uncaughtException, we don't want to crash the app.
+  console.log(error.stack);
 });
