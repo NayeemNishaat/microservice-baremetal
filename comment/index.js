@@ -45,7 +45,32 @@ app.post("/post/:id/comment", async (req, res) => {
 });
 
 app.post("/event", async (req, res) => {
-  console.log(req.body);
+  const { type, data } = req.body;
+
+  if (type === "CommentModerated") {
+    const { postId, id, status, content } = data;
+
+    const comments = commentsByPostId[postId];
+
+    const comment = comments.find((c) => c.id === id);
+    comment.status = status;
+
+    await fetch("http://localhost:10000/event", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        type: "CommentUpdated",
+        data: {
+          id,
+          status,
+          postId,
+          content
+        }
+      })
+    });
+  }
 
   res.send({});
 });

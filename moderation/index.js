@@ -15,7 +15,7 @@ app.post("/event", async (req, res) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        type: "CommentUpdated",
+        type: "CommentModerated",
         data: {
           id: data.id,
           postId: data.postId,
