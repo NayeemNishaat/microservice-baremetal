@@ -3,8 +3,12 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
+const events = [];
+
 app.post("/event", async (req, res) => {
   const event = req.body;
+
+  events.push(event);
 
   try {
     await fetch("http://localhost:4000/event", {
@@ -44,6 +48,10 @@ app.post("/event", async (req, res) => {
   }
 
   res.send({ status: "OK" });
+});
+
+app.get("/event", (req, res) => {
+  res.send(events);
 });
 
 app.listen(10000, () => {

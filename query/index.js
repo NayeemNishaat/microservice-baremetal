@@ -7,13 +7,7 @@ app.use(express.json());
 
 const posts = {};
 
-app.get("/post", (_req, res) => {
-  res.send(posts);
-});
-
-app.post("/event", (req, res) => {
-  const { type, data } = req.body;
-
+const eventHandler = (type, data) => {
   if (type === "PostCreated") {
     const { id, title } = data;
     posts[id] = { id, title, comments: [] };
@@ -32,10 +26,33 @@ app.post("/event", (req, res) => {
     comment.content = content;
     comment.status = status;
   }
+};
+
+app.get("/post", (_req, res) => {
+  res.send(posts);
+});
+
+app.post("/event", (req, res) => {
+  const { type, data } = req.body;
+
+  eventHandler(type, data);
 
   res.send({});
 });
 
-app.listen(8000, () => {
+app.listen(8000, async () => {
   console.log("Query service listening on port 8000");
+
+  const res = await fetch("http://localhost:10000/event", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+
+  const data = await res.json();
+
+  for (const event of data) {
+    eventHandler(event.type, event.data);
+  }
 });
