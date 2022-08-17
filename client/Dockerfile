@@ -2,7 +2,8 @@ FROM node:alpine
 
 WORKDIR /app
 COPY package.json package-lock.json ./
+# Note: When copying multiple file the directory should end with "/" 
 RUN npm ci
-COPY ./ ./
+COPY . .
 
-CMD ["npm", "run","build"]
+CMD ["npm", "start"]
