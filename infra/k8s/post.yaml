@@ -7,3 +7,4 @@ spec:
     - name: post
       image: nayeemnishaat/post:latest
       imagePullPolicy: Never
+#kubectl get pods  --watch # Watch the status of  pods
