@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "prod": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nayeem",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
