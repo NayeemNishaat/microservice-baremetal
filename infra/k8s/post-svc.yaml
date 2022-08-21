@@ -15,3 +15,4 @@ spec:
 # Important: kubectl describe service post-svc -> Get NodePort
 # Important: kubectl get svc -> Get NodePort
 # Note: Finally user the IP:NodePort to access the the application -> http://172.18.0.2:30754/post
+# Remark: kubectl port-forward services/post-svc 30000:4000 -> Open a port (30000) to access the application (4000) from outside world. Accessible via http://localhost:30000/post
