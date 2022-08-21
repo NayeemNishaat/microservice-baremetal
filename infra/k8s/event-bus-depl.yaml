@@ -18,3 +18,21 @@ spec:
         - name: event-bus
           image: nayeemnishaat/event-bus:latest
           imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: 200Mi
+              cpu: 100m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: event-bus-svc
+spec:
+  selector:
+    app: event-bus
+  type: ClusterIP # By default if service type is not specified then ClusterIP service is used
+  ports:
+    - name: event-bus
+      protocol: TCP
+      port: 10000
+      targetPort: 10000
