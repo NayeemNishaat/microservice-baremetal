@@ -1,3 +1,5 @@
+# Warning: It's just for learning purpose. We don't create pods like this.
+
 apiVersion: v1
 kind: Pod
 metadata:
