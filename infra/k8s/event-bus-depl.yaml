@@ -22,7 +22,7 @@ spec:
             limits:
               memory: 200Mi
               cpu: 100m
----
+--- # Note: Creating ClusterIP Service for communication between pods
 apiVersion: v1
 kind: Service
 metadata:

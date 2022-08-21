@@ -18,5 +18,23 @@ spec:
         - name: post
           image: nayeemnishaat/post:latest
           imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: 200Mi
+              cpu: 100m
 # kubectl rollout  restart deployment post-depl # Note: To restart the deployment
 # kubectl logs post-depl-67f9548d9b-dw4vt # Note: To see the logs of the deployment
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: post-clusterip-svc # Point: Not creating post-svc because already created a NodePort service with that name
+spec:
+  selector:
+    app: post
+  type: ClusterIP # By default if service type is not specified then ClusterIP service is used
+  ports:
+    - name: post
+      protocol: TCP
+      port: 4000
+      targetPort: 4000
