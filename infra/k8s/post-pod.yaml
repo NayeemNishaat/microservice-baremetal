@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: post
+spec:
+  containers:
+    - name: post
+      image: nayeemnishaat/post:latest # By putting latest tag, kubrnetes will try to pull the image from docker hub. So if we don't want that then we have to set version other than latest or we can set imagePullPolicy: Never.
+      imagePullPolicy: Never
+#kubectl get pods  --watch # Watch the status of  pods
