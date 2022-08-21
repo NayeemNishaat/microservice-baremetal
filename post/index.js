@@ -16,7 +16,7 @@ app.post("/post", async (req, res) => {
   const id = randomBytes(4).toString("hex");
   posts[id] = { id, title: req.body.title };
 
-  await fetch("http://localhost:10000/event", {
+  await fetch("http://event-bus-svc:10000/event", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

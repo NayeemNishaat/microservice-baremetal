@@ -36,3 +36,6 @@ spec:
       protocol: TCP
       port: 10000
       targetPort: 10000
+# kubectl get nodes -> Get Nodes
+# docker exec -it kind-control-plane bash -> Exec into the kind node
+# crictl rmi <imageId> -> To remove the loaded image
