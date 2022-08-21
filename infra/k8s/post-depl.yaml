@@ -17,6 +17,6 @@ spec:
       containers:
         - name: post
           image: nayeemnishaat/post:latest
-          imagePullPolicy: Never
+          imagePullPolicy: IfNotPresent
 # kubectl rollout  restart deployment post-depl # Note: To restart the deployment
 # kubectl logs post-depl-67f9548d9b-dw4vt # Note: To see the logs of the deployment
