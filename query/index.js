@@ -43,7 +43,7 @@ app.post("/event", (req, res) => {
 app.listen(8000, async () => {
   console.log("Query service listening on port 8000");
 
-  const res = await fetch("http://localhost:10000/event", {
+  const res = await fetch("http://event-bus-svc:10000/event", {
     method: "GET",
     headers: {
       "Content-Type": "application/json"

@@ -9,7 +9,7 @@ app.post("/event", async (req, res) => {
   if (type === "CommentCreated") {
     const status = data.content.includes("orange") ? "rejected" : "approved";
 
-    await fetch("http://localhost:10000/event", {
+    await fetch("http://event-bus-svc:10000/event", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

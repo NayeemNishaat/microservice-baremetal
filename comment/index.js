@@ -25,7 +25,7 @@ app.post("/post/:id/comment", async (req, res) => {
 
   commentsByPostId[req.params.id] = comments;
 
-  await fetch("http://localhost:10000/event", {
+  await fetch("http://event-bus-svc:10000/event", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -55,7 +55,7 @@ app.post("/event", async (req, res) => {
     const comment = comments.find((c) => c.id === id);
     comment.status = status;
 
-    await fetch("http://localhost:10000/event", {
+    await fetch("http://event-bus-svc:10000/event", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

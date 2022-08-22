@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: comment-depl
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: comment
+  template:
+    metadata:
+      labels:
+        app: comment
+    spec:
+      containers:
+        - name: comment
+          image: nayeemnishaat/comment:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: 200Mi
+              cpu: 100m
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: comment-svc
+spec:
+  selector:
+    app: comment
+  type: ClusterIP
+  ports:
+    - name: comment
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
