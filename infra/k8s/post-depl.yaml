@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
         - name: post
-          image: nayeemnishaat/post:latest
-          imagePullPolicy: IfNotPresent
+          image: nayeemnishaat/post:v1
+          imagePullPolicy: Never
           resources:
             limits:
               memory: 200Mi
