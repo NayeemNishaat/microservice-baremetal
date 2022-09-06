@@ -6,10 +6,10 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: post.com
+    - host: post.com # Add localhost/minikube ip to the etc/hosts file -> 192.168.49.2    post.com
       http:
         paths:
-          - path: /posts
+          - path: /post
             pathType: Prefix
             backend:
               service:
