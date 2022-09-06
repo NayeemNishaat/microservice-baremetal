@@ -6,7 +6,7 @@ const CommentCreate = ({ postId }) => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    await fetch(`http://localhost:5000/post/${postId}/comment`, {
+    await fetch(`http://post.com/post/${postId}/comment`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
