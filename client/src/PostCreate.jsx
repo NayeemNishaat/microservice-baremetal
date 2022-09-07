@@ -6,7 +6,7 @@ const PostCreate = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    await fetch("http://post.com/post", {
+    await fetch("http://post.com/post/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
