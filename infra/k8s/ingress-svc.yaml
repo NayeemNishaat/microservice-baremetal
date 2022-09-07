@@ -31,7 +31,7 @@ spec:
                 name: comment-svc
                 port:
                   number: 5000
-          - path: / # Important: For SPA we need query so that always the react application is shown when no other matches. And this path should be at the end else always this path will be called.
+          - path: / #?(.*) # Important: For SPA we need query so that always the react application is shown when no other matches. And this path should be at the end else always this path will be called.
             pathType: Prefix
             backend:
               service:
