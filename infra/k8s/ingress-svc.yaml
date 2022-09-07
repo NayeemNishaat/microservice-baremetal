@@ -10,13 +10,6 @@ spec:
     - host: post.com # Add localhost/minikube ip to the etc/hosts file -> 192.168.49.2    post.com
       http:
         paths:
-          - path: /post/create
-            pathType: Prefix
-            backend:
-              service:
-                name: post-clusterip-svc
-                port:
-                  number: 4000
           - path: /post
             pathType: Prefix
             backend:
@@ -24,6 +17,13 @@ spec:
                 name: query-svc
                 port:
                   number: 8000
+          - path: /post/create
+            pathType: Prefix
+            backend:
+              service:
+                name: post-clusterip-svc
+                port:
+                  number: 4000
           - path: /post/?(.*)/comment
             pathType: Prefix
             backend:
@@ -31,7 +31,7 @@ spec:
                 name: comment-svc
                 port:
                   number: 5000
-          - path: /?(.*) # Important: For SPA we need query so that always the react application is shown when no other matches. And this path should be at the end else always this path will be called.
+          - path: / # Important: For SPA we need query so that always the react application is shown when no other matches. And this path should be at the end else always this path will be called.
             pathType: Prefix
             backend:
               service:
