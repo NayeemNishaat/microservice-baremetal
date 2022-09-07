@@ -13,6 +13,7 @@ app.get("/post", (req, res) => {
 });
 
 app.post("/post/create", async (req, res) => {
+  // Note: Updated route because ingress can't distinguish the request based on http methods.
   const id = randomBytes(4).toString("hex");
   posts[id] = { id, title: req.body.title };
 
