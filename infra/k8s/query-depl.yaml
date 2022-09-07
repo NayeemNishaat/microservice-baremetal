@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: query-depl
 spec:
-  replicas: 2
+  replicas: 1 # Only one replica because each replica will have its own database. And kubernetes will redirect the traffic to each replica evenly hence we don't get consistent data because they are accessing seperate databases.
   selector:
     matchLabels:
       app: query
