@@ -1,4 +1,4 @@
-apiVersion: skaffold/v2alpha3
+apiVersion: skaffold/v2beta28
 kind: Config
 deploy:
   kubectl:
@@ -8,15 +8,15 @@ build:
   local:
     push: false
   artifacts:
-    - image: nayeemnishaat/client:v1
+    - image: nayeemnishaat/client # Important: Don't specify image tag.
       context: client
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "src/**/*.js"
+          - src: "src/*"
             dest: .
-    - image: nayeemnishaat/comment:v1
+    - image: nayeemnishaat/comment
       context: comment
       docker:
         dockerfile: Dockerfile
@@ -24,7 +24,7 @@ build:
         manual:
           - src: "*.js"
             dest: .
-    - image: nayeemnishaat/event-bus:v1
+    - image: nayeemnishaat/event-bus
       context: event-bus
       docker:
         dockerfile: Dockerfile
@@ -32,7 +32,7 @@ build:
         manual:
           - src: "*.js"
             dest: .
-    - image: nayeemnishaat/moderation:v1
+    - image: nayeemnishaat/moderation
       context: moderation
       docker:
         dockerfile: Dockerfile
@@ -40,7 +40,7 @@ build:
         manual:
           - src: "*.js"
             dest: .
-    - image: nayeemnishaat/post:v1
+    - image: nayeemnishaat/post
       context: post
       docker:
         dockerfile: Dockerfile
@@ -48,7 +48,7 @@ build:
         manual:
           - src: "*.js"
             dest: .
-    - image: nayeemnishaat/query:v1
+    - image: nayeemnishaat/query
       context: query
       docker:
         dockerfile: Dockerfile
