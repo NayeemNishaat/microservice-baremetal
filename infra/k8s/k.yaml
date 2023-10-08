@@ -1,1 +1,6 @@
+# kubectl get nodes -> Get Nodes
+# docker exec -it kind-control-plane bash -> Exec into the kind node
+# crictl rmi <imageId> -> To remove the loaded image
 
+# Important: When using kind we need to load the built image into the kind cluster -> kind load docker-image <image-name>
+# Important: When using minikube we need to user the docker daemon with minikube -> eval $(minikube docker-env) and build the image in the same shell because the docker-env environment variable is set only to the current shell session. -> docker build -t <image-name> .
